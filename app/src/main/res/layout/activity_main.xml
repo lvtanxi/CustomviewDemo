@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.lv.customviewdemo.MainActivity">
+        <com.lv.customviewdemo.toggle.MyToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.lv.customviewdemo.CustomTitleView
+            android:id="@+id/testCustomView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="10dp"
+            app:titleText="123456"
+            app:titleTextSize="38sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal">
+
+            <com.lv.customviewdemo.CustomTitleView
+                android:id="@+id/customTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:onClick="showDialog"
+                android:padding="10dp"
+                app:titleText="显示dialog"/>
+
+            <com.lv.customviewdemo.CustomTitleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:onClick="showPieView"
+                android:padding="10dp"
+                app:titleText="显示PieView"/>
+        </LinearLayout>
+
+        <com.lv.customviewdemo.CanvasView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"/>
+
+        <com.lv.customviewdemo.CanvasOperateView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+        <com.lv.customviewdemo.DashboardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+        <com.lv.customviewdemo.SkewView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <com.lv.customviewdemo.CanvasTextImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+    </LinearLayout>
+</ScrollView>

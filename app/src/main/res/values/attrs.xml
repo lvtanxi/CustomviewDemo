@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTitleView">
+        <attr name="titleText" format="string"/>
+        <attr name="titleTextColor" format="color"/>
+        <attr name="titleTextSize" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="SwitchView">
+        <attr name="switch_close_bg_color" format="color"/>
+        <attr name="switch_open_bg_color" format="color"/>
+        <attr name="switch_pie_color" format="color"/>
+        <attr name="switch_border_color" format="color"/>
+        <attr name="switch_border_Width" format="dimension"/>
+        <attr name="switch_radius_size" format="dimension"/>
+        <attr name="switch_is_open" format="boolean"/>
+    </declare-styleable>
+</resources>
