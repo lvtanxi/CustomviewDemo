@@ -20,7 +20,7 @@
         android:hardwareAccelerated="false"
         android:name=".App"
         android:theme="@style/AppTheme">
-        <activity android:name=".youku.YouKuAct">
+        <activity android:name=".EventActivty">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

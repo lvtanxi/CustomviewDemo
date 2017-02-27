@@ -12,8 +12,25 @@
         android:id="@+id/sw"
         android:layout_centerInParent="true"
         android:layout_width="65dp"
+        android:visibility="gone"
         app:switch_open_bg_color="@color/colorAccent"
         android:layout_height="30dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <RadioGroup
+                android:id="@+id/myg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"/>
+            <com.lv.customviewdemo.CustViewPager
+                android:id="@+id/cu"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"/>
+        </LinearLayout>
     <RelativeLayout
         android:id="@+id/level3"
         android:layout_width="280dp"

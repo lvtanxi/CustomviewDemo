@@ -6,9 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.lv.customviewdemo.CustViewPager;
 import com.lv.customviewdemo.R;
 import com.lv.customviewdemo.toggle.SwitchView;
 
@@ -20,6 +23,11 @@ public class YouKuAct extends Activity implements OnClickListener {
     private boolean isShowLevel3 = true;
     private boolean isShowMenu = true;
     private SwitchView mSwitchView;
+    private CustViewPager mCustViewPager;
+    private RadioGroup mRadioGroup;
+
+    private int[] imags = {R.mipmap.tut_page_1_background,R.mipmap.tut_page_1_front,R.mipmap.tut_page_3_foreground,R.mipmap.tut_page_4_background};
+    private int[] cors= {android.R.color.holo_blue_light,android.R.color.holo_green_light,android.R.color.holo_orange_light,android.R.color.holo_red_light};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +44,22 @@ public class YouKuAct extends Activity implements OnClickListener {
         level2 = (RelativeLayout) findViewById(R.id.level2);
         level3 = (RelativeLayout) findViewById(R.id.level3);
         mSwitchView = (SwitchView) findViewById(R.id.sw);
+        mCustViewPager= (CustViewPager) findViewById(R.id.cu);
+        mRadioGroup= (RadioGroup) findViewById(R.id.myg);
+        mCustViewPager.addView(View.inflate(this,R.layout.test,null));
+        for (int i = 0; i < imags.length; i++) {
+            ImageView imageView=new ImageView(this);
+            imageView.setImageResource(imags[i]);
+            imageView.setBackgroundResource(cors[i]);
+            mCustViewPager.addView(imageView);
+            RadioButton radioButton=new RadioButton(this);
+            radioButton.setId(i);
+            radioButton.setChecked(i==0);
+            mRadioGroup.addView(radioButton);
+        }
+        RadioButton radioButton=new RadioButton(this);
+        radioButton.setId(imags.length);
+        mRadioGroup.addView(radioButton);
     }
 
     private void initListener() {
@@ -63,6 +87,19 @@ public class YouKuAct extends Activity implements OnClickListener {
             @Override
             public void onSwitchChange(SwitchView switchView, boolean isOpen) {
                 Log.d("YouKuAct", "isOpen:" + isOpen);
+            }
+        });
+
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                mCustViewPager.scrollToPager(checkedId);
+            }
+        });
+        mCustViewPager.setOnPageChangeListenter(new CustViewPager.onPageChangeListenter() {
+            @Override
+            public void onPageChange(CustViewPager custViewPager, int position) {
+                mRadioGroup.check(position);
             }
         });
     }
